@@ -9,7 +9,7 @@ namespace Assignment.StudentSolution.LCT04
         /// name เป็น public จึงสามารถเข้าถึงได้จากภายนอก class
         /// รวมถึงภายใน method ของ class ที่สืบทอด Animal ไปด้วย
         /// </summary>
-        string name = "";
+        public string name = "";
 
         /// <summary>
         /// specie เป็น protected จึงสามารถเข้าถึงได้จากภายใน class ที่สืบทอด Animal
@@ -17,12 +17,12 @@ namespace Assignment.StudentSolution.LCT04
         /// เช่นผ่าน constructor ของ Dog เพื่อกำหนดค่า specie = "Dog"
         /// ไม่สามารถกำหนดค่าให้กับ specie จากภายนอก class ได้
         /// </summary>
-        string specie = "";
+        protected string specie = "";
 
         /// <summary>
         /// health เป็น private จึงสามารถเข้าถึงได้เฉพาะภายใน class นี้ (Animal) เท่านั้น
         /// </summary>
-        int health = 10;
+        private int health = 10;
 
         public void Feed(int food)
         {
@@ -75,7 +75,7 @@ namespace Assignment.StudentSolution.LCT04
 
             // student code start HERE ...
             // 1. พิมพ์ dog.name ออกมาในข้อความ $"my name is {dog.name}"
-            // ...
+            Debug.Log($"my name is {dog.name}");
 
             // student code ends HERE
 

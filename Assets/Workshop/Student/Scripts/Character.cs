@@ -6,16 +6,36 @@ using UnityEngine.UIElements;
 using static UnityEditor.PlayerSettings;
 using static UnityEngine.EventSystems.EventTrigger;
 
-public class Character : MonoBehaviour
+public class Character : Identity
 {
     public int energy;
     public int attackPoint;
     protected bool isFreeze;
-    OOPMapGenerator mapGenerator;
+    //OOPMapGenerator mapGenerator;
+    private bool isAlive;
 
     public virtual void Move(Vector2 direction)
     {
-
+        int toX = positionX + (int)direction.x;
+        int toY = positionY + (int)direction.y;
+        if (HasPlacement(toX, toY) == true)
+        {
+            mapGenerator.walls[toX, toY].Hit();
+        }
+        else if (IsPotion(toX, toY) == true)
+        {
+            mapGenerator.potions[toX, toY].Hit();
+            positionX = toX;
+            positionY = toY;
+            transform.position = new Vector2(toX, toY);
+        }
+        else
+        {
+            positionX = toX;
+            positionY = toY;
+            transform.position = new Vector2(toX, toY);
+            TakeDamage(1);
+        }
     }
 
     public virtual void TakeDamage(int Damage)
@@ -69,30 +89,30 @@ public class Character : MonoBehaviour
     /// <returns></returns>
     public bool HasPlacement(int x, int y)
     {
-        // int mapData = mapGenerator.GetMapData(x, y);
-        // return mapData != mapGenerator.empty;
-        return false;
+        string mapData = mapGenerator.GetMapData(x, y);
+        return mapData != mapGenerator.empty;
+        // return false;
     }
 
     public bool IsDemonWalls(int x, int y)
     {
-        // int mapData = mapGenerator.GetMapData(x, y);
-        // return mapData == mapGenerator.demonWall;
-        return false;
+        string mapData = mapGenerator.GetMapData(x, y);
+        return mapData == mapGenerator.demonWall;
+        // return false;
     }
 
     public bool IsPotion(int x, int y)
     {
-        // int mapData = mapGenerator.GetMapData(x, y);
-        // return mapData == mapGenerator.potion;
-        return false;
+        string mapData = mapGenerator.GetMapData(x, y);
+        return mapData == mapGenerator.potion;
+        // return false;
     }
 
     public bool IsExit(int x, int y)
     {
-        // int mapData = mapGenerator.GetMapData(x, y);
-        // return mapData == mapGenerator.exit;
-        return false;
+        string mapData = mapGenerator.GetMapData(x, y);
+        return mapData == mapGenerator.exit;
+        // return false;
     }
 
     #endregion

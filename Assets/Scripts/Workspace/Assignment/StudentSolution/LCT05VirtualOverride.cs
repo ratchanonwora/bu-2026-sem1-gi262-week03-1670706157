@@ -16,9 +16,8 @@ namespace Assignment.StudentSolution.LCT05
     {
         // student code here ...
         // 1. declare overridden MakeSound() method
-        public override void MakeSound()
+        public void MakeSound()
         {
-            base.MakeSound();
             Debug.Log("Woof!");
         }
         // student code ends ...
@@ -28,7 +27,7 @@ namespace Assignment.StudentSolution.LCT05
     {
         // student code here ...
         // 2. declare overridden MakeSound() method
-        public override void MakeSound()
+        public void MakeSound()
         {
             Debug.Log("Meow!");
         }
@@ -43,7 +42,7 @@ namespace Assignment.StudentSolution.LCT05
         {
             // 3. create instance of Dog and call MakeSound()
             Dog dog = new();
-            d.MakeSound();
+            dog.MakeSound();
 
             // 4. create instance of Cat and call MakeSound()
             Cat cat = new();

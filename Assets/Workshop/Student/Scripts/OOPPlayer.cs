@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class OOPPlayer : MonoBehaviour
+public class OOPPlayer : Character
 {
     public string Name;
     public int positionX;
@@ -20,6 +20,6 @@ public class OOPPlayer : MonoBehaviour
         Vector2 direction = moveAction.ReadValue<Vector2>();
 
         // call method Move(Vector2.up);
-        
+
     }
 }
