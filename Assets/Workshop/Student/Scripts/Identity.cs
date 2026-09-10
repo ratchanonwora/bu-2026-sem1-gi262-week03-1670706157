@@ -5,15 +5,18 @@ using UnityEngine;
 // Identity class เป็น base class (คลาสแม่) ของทุก object ที่ถูกสร้างขึ้นในเกม
 public class Identity : MonoBehaviour
 {
-    public GameObject YouWin;
-    public override void Hit()
+    [Header("Identity")]
+    public string Name;
+    public int positionX;
+    public int positionY;
+    public OOPMapGenerator mapGenerator;
+    public void PrintInfo()
     {
-        mapGenerator.player.enabled = false;
-        if (YouWin != null)
-        {
-            YouWin.SetActive(true);
-        }
-        Debug.Log("You win");
+        Debug.Log("tell me your " + Name);
+    }
+
+    public virtual void Hit()
+    {
 
     }
 }

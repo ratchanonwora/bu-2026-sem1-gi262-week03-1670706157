@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class OOPItemPotion : Identity
 {
-    public int healPoint;
-    public bool isBouns;
+    public int healPoint = 10;
+    public bool isBonus;
 
     public void Start()
     {
