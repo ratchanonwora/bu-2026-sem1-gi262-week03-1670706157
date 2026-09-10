@@ -10,6 +10,7 @@ public class OOPExit : MonoBehaviour
     public override void Hit()
     {
         mapGenerator.player.enabled = false;
+        mapGenerator.mapData[positionX, positionY] = mapGenerator.empty;
         if (YouWin != null)
         {
             YouWin.SetActive(true);

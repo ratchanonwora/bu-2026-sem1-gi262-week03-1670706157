@@ -15,6 +15,7 @@ public class OOPItemPotion : Identity
             GetComponent<SpriteRenderer>().color = Color.blue;
         }
     }
+
     public override void Hit()
     {
         if (isBonus)

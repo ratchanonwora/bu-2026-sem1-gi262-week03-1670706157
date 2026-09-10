@@ -14,5 +14,6 @@ public class Identity : MonoBehaviour
             YouWin.SetActive(true);
         }
         Debug.Log("You win");
+
     }
 }
